@@ -596,30 +596,19 @@
         
        
         
-        // تأثير التمرير
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('.terms-header');
-            const scrollPosition = window.scrollY;
-            
-            if (scrollPosition > 50) {
-                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-            } else {
-                header.style.boxShadow = 'var(--box-shadow)';
-            }
-        });
+      
     </script>
     <script>
         document.getElementById('hasSibling').addEventListener('change', function () {
             document.getElementById('siblingDetails').style.display = this.value === 'yes' ? 'block' : 'none';
         });
         
-        const scriptURL = "https://script.google.com/macros/s/AKfycbzLhwwSbcVGng1Es9BtfR8huY42yDJV8FmWhBY6xN-Rjm4vk8qOgw5CEXoOGPTyDFRy/exec";
-        const form = document.forms["submit-to-google-sheet"];
+       const form = document.forms["submit-to-google-sheet"];
+const scriptURL = "https://script.google.com/macros/s/..."; // رابطك
 
-        form.addEventListener("submit", (e) => {
+form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    // التحقق من الحقول المطلوبة
     const requiredFields = form.querySelectorAll('[required]');
     let allFilled = true;
 
@@ -633,11 +622,10 @@
     });
 
     if (!allFilled) {
-        swal("خطأ", "الرجاء ملء جميع الحقول المطلوبة!", "error");
+        Swal.fire("خطأ", "يرجى ملء جميع الحقول المطلوبة!", "error");
         return;
     }
 
-    // التحقق من أرقام الهاتف
     const phoneInputs = form.querySelectorAll('input[type="tel"]');
     let isValid = true;
 
@@ -651,21 +639,20 @@
     });
 
     if (!isValid) {
-        swal("خطأ", "الرجاء إدخال أرقام هواتف صالحة!", "error");
+        Swal.fire("خطأ", "يرجى إدخال أرقام هواتف صالحة!", "error");
         return;
     }
 
-    // إرسال البيانات إذا كان كل شيء صحيح
     const formData = new FormData(form);
 
     fetch(scriptURL, { method: "POST", body: formData })
-        .then((response) => {
-            swal("تم الإرسال", "تم إرسال النموذج بنجاح!", "success");
+        .then(() => {
+            Swal.fire("تم الإرسال", "تم إرسال النموذج بنجاح!", "success");
             form.reset();
             document.getElementById('siblingDetails').style.display = 'none';
         })
-        .catch((error) => {
-            swal("خطأ", "حدث خطأ أثناء الإرسال. حاول مرة أخرى!", "error");
+        .catch(() => {
+            Swal.fire("خطأ", "حدث خطأ أثناء الإرسال. حاول مرة أخرى!", "error");
         });
 });
     </script>
