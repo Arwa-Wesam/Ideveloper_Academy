@@ -633,7 +633,7 @@
     });
 
     if (!allFilled) {
-        swal("خطأ", "الرجاء ملء جميع الحقول المطلوبة!", "error");
+        alert("خطأ", "الرجاء ملء جميع الحقول المطلوبة!", "error");
         return;
     }
 
@@ -651,7 +651,7 @@
     });
 
     if (!isValid) {
-        swal("خطأ", "الرجاء إدخال أرقام هواتف صالحة!", "error");
+        alert("خطأ", "الرجاء إدخال أرقام هواتف صالحة!", "error");
         return;
     }
 
@@ -665,7 +665,7 @@
             document.getElementById('siblingDetails').style.display = 'none';
         })
         .catch((error) => {
-            swal("خطأ", "حدث خطأ أثناء الإرسال. حاول مرة أخرى!", "error");
+            alert("خطأ", "حدث خطأ أثناء الإرسال. حاول مرة أخرى!", "error");
         });
 });
     </script>
