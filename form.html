@@ -756,19 +756,21 @@
     }
   </style>
   <script>
-    const params = new URLSearchParams(window.location.search);
-    const courseFromURL = decodeURIComponent(params.get("course") || ""); // فك التشفير
+      const urlParams = new URLSearchParams(window.location.search);
+  const courseValue = urlParams.get('course');
 
-    if (courseFromURL) {
-      const dropdown = document.getElementById("courseSelect");
-      for (let i = 0; i < dropdown.options.length; i++) {
-        const optionValue = dropdown.options[i].value.trim();
-        if (optionValue === courseFromURL.trim()) {
-          dropdown.selectedIndex = i;
-          break;
-        }
-      }
+  if (courseValue) {
+    const courseDropdown = document.getElementById('course');
+
+    // التأكد إن القيمة موجودة داخل الـ dropdown
+    const optionExists = Array.from(courseDropdown.options).some(
+      option => option.value === courseValue
+    );
+
+    if (optionExists) {
+      courseDropdown.value = courseValue;
     }
+  }
   </script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/js/bootstrap.min.js"></script>
