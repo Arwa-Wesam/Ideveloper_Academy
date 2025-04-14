@@ -375,18 +375,48 @@
         @media only screen and (max-width: 800px) {
             .phone{
               font-size: 1.5em;
-            }
-          }
-          .main-nav a{
+            }.main-nav a{
             padding:0;
             
           }
+          .main-nav {
+          flex-direction: column;
+          font-size: 0.6em;
+          justify-content: center;
+          text-align: center;
+          align-items: center;
+          padding-right: 1px;
+          padding-left: 1px;
+        }
+        header{
+          justify-content: center;
+          width: 100%;
+        }
+        .sub-nav {
+          font-size: 0.6em;
+          padding: 0 2px;
+          width: 80%;
+          flex-wrap: nowrap;
+        }
+        .sub-nav a{
+          padding: 5px;
+          font-size: 0.8em;
+
+        }
       .main-nav .box{
         margin-bottom: 5px;
       }
       .main-nav{
         padding-top: 10px;
       }
+          }
+          .sub-nav .course-button{
+            background-color:#c1d9f0;
+          }
+          .sub-nav a{
+            font-weight: bold;
+          }
+          
     </style>
 </head>
 <body>
@@ -395,7 +425,7 @@
         <nav class="main-nav">
           <div class="box">
             <i class="fa-solid fa-phone"></i>
-            <a class="hover_animation"href="tel:+201062302368" target="_blank"> 01062302368 |  </a>
+            <a class="hover_animation phone"href="tel:+201062302368" target="_blank"> 01062302368 |  </a>
             <i class="fa-regular fa-clock"></i>
             <a>مواعيد العمل من 2 ظهرا الى 7 مساءا</a>
             
